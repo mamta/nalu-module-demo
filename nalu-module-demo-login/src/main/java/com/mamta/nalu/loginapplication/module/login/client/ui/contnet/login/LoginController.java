@@ -17,16 +17,20 @@
 package com.mamta.nalu.loginapplication.module.login.client.ui.contnet.login;
 
 import com.mamta.nalu.loginapplication.module.login.client.NaluLoginApplicationContextLoginModule;
+import com.mamta.nalu.loginapplication.module.login.client.ui.contnet.footer.FooterComposite;
 import com.github.nalukit.nalu.client.component.AbstractComponentController;
+import com.github.nalukit.nalu.client.component.annotation.Composite;
+import com.github.nalukit.nalu.client.component.annotation.Composites;
 import com.github.nalukit.nalu.client.component.annotation.Controller;
 import com.github.nalukit.nalu.client.event.NaluApplicationEvent;
-import com.google.gwt.core.client.GWT;
 import elemental2.dom.HTMLElement;
 
 @Controller(route = "/loginShell/login",
             selector = "content",
             component = LoginComponent.class,
             componentInterface = ILoginComponent.class)
+@Composites({
+@Composite(name = "footerComposite", compositeController = FooterComposite.class, selector = "footerId")})
 public class LoginController
     extends AbstractComponentController<NaluLoginApplicationContextLoginModule, ILoginComponent, HTMLElement>
     implements ILoginComponent.Controller {

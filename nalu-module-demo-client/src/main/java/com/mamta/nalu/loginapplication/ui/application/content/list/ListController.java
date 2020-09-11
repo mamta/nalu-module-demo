@@ -18,11 +18,14 @@ package com.mamta.nalu.loginapplication.ui.application.content.list;
 
 import com.mamta.nalu.loginapplication.NaluLoginApplicationContext;
 import com.mamta.nalu.loginapplication.event.SelectEvent;
+import com.mamta.nalu.loginapplication.module.login.client.ui.contnet.footer.FooterComposite;
 import com.mamta.nalu.loginapplication.shared.data.model.dto.Person;
 import com.mamta.nalu.loginapplication.shared.data.model.dto.PersonSearch;
 import com.mamta.nalu.loginapplication.shared.data.service.PersonService;
 import com.github.nalukit.nalu.client.component.AbstractComponentController;
 import com.github.nalukit.nalu.client.component.annotation.AcceptParameter;
+import com.github.nalukit.nalu.client.component.annotation.Composite;
+import com.github.nalukit.nalu.client.component.annotation.Composites;
 import com.github.nalukit.nalu.client.component.annotation.Controller;
 import com.github.nalukit.nalu.client.event.NaluApplicationEvent;
 import elemental2.dom.HTMLElement;
@@ -33,6 +36,8 @@ import java.util.List;
             selector = "content",
             componentInterface = IListComponent.class,
             component = ListComponent.class)
+@Composites({
+@Composite(name = "footerComposite", compositeController = FooterComposite.class, selector = "footerId")})
 public class ListController
     extends AbstractComponentController<NaluLoginApplicationContext, IListComponent, HTMLElement>
     implements IListComponent.Controller {
